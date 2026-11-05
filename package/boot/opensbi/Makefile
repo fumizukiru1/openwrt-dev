@@ -28,7 +28,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/opensbi
     SECTION:=boot
     CATEGORY:=Boot Loaders
-    DEPENDS:=@(TARGET_sifiveu||TARGET_d1)
+    DEPENDS:=@(TARGET_sifiveu||TARGET_d1||TARGET_sophgo)
     URL:=https://github.com/riscv/opensbi/blob/master/README.md
     VARIANT:=$(subst _,/,$(subst opensbi_,,$(1)))
     TITLE:=OpenSBI generic
@@ -41,6 +41,7 @@ define Package/opensbi_generic
   TITLE:=OpenSBI generic
   OPENSBI_IMAGE:=fw_dynamic.bin
   PLAT:=generic
+  HIDDEN:=1
 endef
 
 export GCC_HONOUR_COPTS=s
